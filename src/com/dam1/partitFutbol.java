@@ -1,11 +1,11 @@
 package com.dam1;
 
-public class Main {
+public class partitFutbol {
     private static EquipFutbol eq1;
     private static EquipFutbol eq2;
     private static int gols1,gols2;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 	// write your code here
         final int TEMPS_ENTRE_GOLS = 30;
         int tempsPartit = 0, tempsGol,equipGoletjador;
@@ -33,17 +33,18 @@ public class Main {
         System.out.println("Comença el partit entre " + eq1.getNom() + " i " + eq2.getNom() + " ...");
         while (true)
         {
+            Thread.sleep(3000);
             tempsGol = (int) (2*TEMPS_ENTRE_GOLS*Math.random());
             tempsPartit += tempsGol;
             if(tempsPartit > 90)
                 break;
             equipGoletjador = 1 + (int) (2*Math.random());
             Futbolista f = anotaGol(equipGoletjador);
-            System.out.println("MARCADOR ACTUAL el minuto " + tempsPartit + ": " + "\n\t" + eq1.getNom() + ": " + gols1 + "\n\t"
+            System.out.println("MARCADOR ACTUAL al minut " + tempsPartit + ": " + "\n\t" + eq1.getNom() + ": " + gols1 + "\n\t"
                     + eq2.getNom() + ": " + gols2 );
             System.out.println("Gol marcat per " + f.getNom());
         }
-
+        System.out.println("Fi del partit");
     }
 
     public static Futbolista anotaGol(int equip)
@@ -58,8 +59,9 @@ public class Main {
         else
         {
             f = eq2.getFutbolista(golejador);
-            gols2++;        }
-        f.marcaGol();
+            gols2++;
+        }
+        f.anota(1);
         return f;
     }
 }

@@ -1,30 +1,19 @@
 package com.dam1;
 
-public class Futbolista {
-    private String nom;
-    private int dorsal;
+public class Futbolista extends Jugador {
+
     private int gols;
 
     public Futbolista() {
     }
 
     public Futbolista(String nom, int dorsal) {
-        this.nom = nom;
-        this.dorsal = dorsal;
+        super(nom,dorsal);
     }
 
     public Futbolista(String nom, int dorsal, int gols) {
-        this.nom = nom;
-        this.dorsal = dorsal;
+        super(nom,dorsal);
         this.gols = gols;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
     }
 
     public int getGols() {
@@ -34,15 +23,6 @@ public class Futbolista {
     public void setGols(int gols) {
         this.gols = gols;
     }
-
-    public int getDorsal() {
-        return dorsal;
-    }
-
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
-    }
-
     @Override
     public String toString() {
         return "Futbolista{" +
@@ -52,5 +32,5 @@ public class Futbolista {
                 '}';
     }
 
-    public void marcaGol() { gols++; }
+    public void anota(int n) { gols++; }
 }
